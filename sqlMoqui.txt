@@ -276,6 +276,19 @@ Ans.> SELECT * FROM order_header WHERE grand_total > (SELECT AVG(grand_total) FR
 +----------+--------------+-------------------------+-------------------------+----------------+-----------------+-------------------+-----------------------+-------------+
 
 List the ItemSalesTax Order Item Details for each order.
+
+Ans. > SELECT * FROM order_item WHERE item_type_enum_id ='ItemSalesTax';
++----------+-------------------+-------------------+------------+------------------+----------+-------------+-------------------+--------------------+
+| ORDER_ID | ORDER_ITEM_SEQ_ID | ORDER_PART_SEQ_ID | PRODUCT_ID | ITEM_DESCRIPTION | QUANTITY | UNIT_AMOUNT | ITEM_TYPE_ENUM_ID | PARENT_ITEM_SEQ_ID |
++----------+-------------------+-------------------+------------+------------------+----------+-------------+-------------------+--------------------+
+| 100051   | 03                | 02                | NULL       | Sales Tax        | 3.000000 |     1.33000 | ItemSalesTax      | 02                 |
+| 100052   | 02                | 01                | NULL       | Sales Tax        | 1.000000 |     1.33000 | ItemSalesTax      | 01                 |
+| 100102   | 03                | 01                | NULL       | Sales Tax        | 3.000000 |     2.33000 | ItemSalesTax      | 02                 |
+| 100153   | 02                | 01                | NULL       | Sales Tax        | 1.000000 |     1.33000 | ItemSalesTax      | 01                 |
+| 100153   | 04                | 01                | NULL       | Sales Tax        | 1.000000 |     2.33000 | ItemSalesTax      | 03                 |
+| 100255   | 02                | 01                | NULL       | Sales Tax        | 3.000000 |     1.33000 | ItemSalesTax      | 01                 |
++----------+-------------------+-------------------+------------+------------------+----------+-------------+-------------------+--------------------+
+
 List the below Order Information for the orderId, 100153.
 orderId
 orderPartSeqId
@@ -290,6 +303,9 @@ unitAmount
 quantity
 partTotal
 grandTotal
+
+Ans.
+
 List the below Order details for the customer partyId, CustDemo1.
 orderId
 orderPartSeqId
@@ -302,3 +318,5 @@ productId
 itemDescription
 quantity
 unitAmount
+
+Ans.
