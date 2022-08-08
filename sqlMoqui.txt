@@ -1,4 +1,4 @@
-List all columns of OrderItem table.
+1. List all columns of OrderItem table.
 
 Ans. > SELECT * FROM order_item;
 +----------+-------------------+-------------------+-------------+-------------------------+----------+-------------+-------------------+--------------------+
@@ -26,7 +26,7 @@ Ans. > SELECT * FROM order_item;
 | 100255   | 03                | 02                | DEMO_UNIT_5 | Demo Product Unit Five  | 3.000000 |    10.99000 | ItemProduct       | NULL               |
 +----------+-------------------+-------------------+-------------+-------------------------+----------+-------------+-------------------+--------------------+
 
-List the person details for all females.
+2. List the person details for all females.
 
 Ans.> SELECT * FROM person WHERE Gender = 'F';
 +-----------+------------+------------+-------------+-----------+--------+------------+------------------------+---------------------------+-------------------+
@@ -36,7 +36,7 @@ Ans.> SELECT * FROM person WHERE Gender = 'F';
 | CustDemo4 | Ms         | John       | J           | Norvig    | F      | 1998-06-11 | MarsSingle             | EmpsFullTime              | Software Engineer |
 +-----------+------------+------------+-------------+-----------+--------+------------+------------------------+---------------------------+-------------------+
 
-List the Order Header table contents so that the latest placed order appears in the top.
+3. List the Order Header table contents so that the latest placed order appears in the top.
 
 Ans.> SELECT * FROM order_header ORDER BY placed_date DESC;
 +----------+--------------+-------------------------+-------------------------+----------------+-----------------+-------------------+-----------------------+-------------+
@@ -51,7 +51,7 @@ Ans.> SELECT * FROM order_header ORDER BY placed_date DESC;
 | 100061   | Test Order 6 | 2019-04-24 00:00:00.000 | 2019-04-28 00:00:00.000 | OrderApproved  | USD             | OMS_DEFAULT_STORE | ScWeb                 |     87.0700 |
 +----------+--------------+-------------------------+-------------------------+----------------+-----------------+-------------------+-----------------------+-------------+
 
-List the Person details with MarsMarried marital status.
+4. List the Person details with MarsMarried marital status.
 
 Ans.> SELECT * FROM person WHERE marital_status_enum_id = 'MarsMarried';
 +-----------+------------+------------+-------------+-----------+--------+------------+------------------------+---------------------------+----------------+
@@ -62,7 +62,7 @@ Ans.> SELECT * FROM person WHERE marital_status_enum_id = 'MarsMarried';
 | CustDemo6 | Mr         | James      | W           | Evans     | M      | 1993-05-20 | MarsMarried            | EmpsFullTime              | Civil Engineer |
 +-----------+------------+------------+-------------+-----------+--------+------------+------------------------+---------------------------+----------------+
 
-Output the count of Order Parts for each shipment Method Enum Id.
+5. Output the count of Order Parts for each shipment Method Enum Id.
 
 Ans.> SELECT COUNT(DISTINCT shipment_method_enum_id) FROM order_part;
 +-----------------------------------------+
@@ -71,7 +71,7 @@ Ans.> SELECT COUNT(DISTINCT shipment_method_enum_id) FROM order_part;
 |                                       2 |
 +-----------------------------------------+ 
 
-List the Order Header details with grand total greater than 50.
+6. List the Order Header details with grand total greater than 50.
 
 Ans.> SELECT * FROM order_header WHERE grand_total > 50;
 +----------+--------------+-------------------------+-------------------------+----------------+-----------------+-------------------+-----------------------+-------------+
@@ -83,7 +83,7 @@ Ans.> SELECT * FROM order_header WHERE grand_total > 50;
 | 100255   | Test Order 5 | 2020-03-17 00:00:00.000 | 2020-03-21 00:00:00.000 | OrderApproved  | USD             | OMS_DEFAULT_STORE | ScWeb                 |     75.9300 |
 +----------+--------------+-------------------------+-------------------------+----------------+-----------------+-------------------+-----------------------+-------------+
 
-List the Person details who have not placed any orders.
+7. List the Person details who have not placed any orders.
 
 Ans.> SELECT * FROM person WHERE person.party_id NOT IN (SELECT customer_party_id FROM order_part);
 +-----------+------------+------------+-------------+-----------+--------+------------+------------------------+---------------------------+------------+
@@ -92,7 +92,7 @@ Ans.> SELECT * FROM person WHERE person.party_id NOT IN (SELECT customer_party_i
 | CustDemo2 | Mr         | Jack       | John        | Smith     | M      | 1999-09-14 | MarsMarried            | EmpsFullTime              | Doctor     |
 +-----------+------------+------------+-------------+-----------+--------+------------+------------------------+---------------------------+------------+
 
-List the Person details whose first name starts with ‘J’ and third character is ’h’.
+8. List the Person details whose first name starts with ‘J’ and third character is ’h’.
 
 Ans.> SELECT * FROM person WHERE first_name LIKE 'J%' AND first_name LIKE '__h%';
 +-----------+------------+------------+-------------+-----------+--------+------------+------------------------+---------------------------+-------------------+
@@ -101,7 +101,7 @@ Ans.> SELECT * FROM person WHERE first_name LIKE 'J%' AND first_name LIKE '__h%'
 | CustDemo4 | Ms         | John       | J           | Norvig    | F      | 1998-06-11 | MarsSingle             | EmpsFullTime              | Software Engineer |
 +-----------+------------+------------+-------------+-----------+--------+------------+------------------------+---------------------------+-------------------+
 
-List all Order Item details for the order with orderId, 100102 and orderPartSeqId, 01.
+9. List all Order Item details for the order with orderId, 100102 and orderPartSeqId, 01.
 
 Ans.> SELECT * FROM order_item WHERE order_id = 100102 AND order_part_seq_id = 01;
 +----------+-------------------+-------------------+-------------+-----------------------+----------+-------------+-------------------+--------------------+
@@ -112,7 +112,7 @@ Ans.> SELECT * FROM order_item WHERE order_id = 100102 AND order_part_seq_id = 0
 | 100102   | 03                | 01                | NULL        | Sales Tax             | 3.000000 |     2.33000 | ItemSalesTax      | 02                 |
 +----------+-------------------+-------------------+-------------+-----------------------+----------+-------------+-------------------+--------------------+
 
-List the Order Item details for only those products for which chargeShipping is set to "Y".
+10. List the Order Item details for only those products for which chargeShipping is set to "Y".
 
 Ans.> SELECT * FROM order_item WHERE product_id IN ( SELECT product_id FROM product WHERE charge_shipping ='Y');
 +----------+-------------------+-------------------+-------------+-------------------------+----------+-------------+-------------------+--------------------+
@@ -132,7 +132,7 @@ Ans.> SELECT * FROM order_item WHERE product_id IN ( SELECT product_id FROM prod
 | 100255   | 03                | 02                | DEMO_UNIT_5 | Demo Product Unit Five  | 3.000000 |    10.99000 | ItemProduct       | NULL               |
 +----------+-------------------+-------------------+-------------+-------------------------+----------+-------------+-------------------+--------------------+
 
-Find order parts with part total less than equals to 20.
+11. Find order parts with part total less than equals to 20.
 
 Ans. > SELECT * FROM order_part WHERE part_total <= 20 ;
 +----------+-------------------+-----------+----------------+-----------------+-------------------+------------+-------------+-------------------------+
@@ -144,11 +144,20 @@ Ans. > SELECT * FROM order_part WHERE part_total <= 20 ;
 | 100102   | 02                | #105      | OrderCompleted | OMS_VENDOR      | CustDemo3         |    14.9900 | ZIRET_WH_2  | ShMthGround             |
 +----------+-------------------+-----------+----------------+-----------------+-------------------+------------+-------------+-------------------------+
 
-List the Person details whose employment status is either EmpsSelf or EmpsFullTime without using the OR operator.
+12. List the Person details whose employment status is either EmpsSelf or EmpsFullTime without using the OR operator.
 
-Ans. 
+Ans. > SELECT * FROM person WHERE employment_status_enum_id != 'EmpsPartTime';
++-----------+------------+------------+-------------+-----------+--------+------------+------------------------+---------------------------+-------------------+
+| PARTY_ID  | SALUTATION | FIRST_NAME | MIDDLE_NAME | LAST_NAME | GENDER | BIRTH_DATE | MARITAL_STATUS_ENUM_ID | EMPLOYMENT_STATUS_ENUM_ID | OCCUPATION        |
++-----------+------------+------------+-------------+-----------+--------+------------+------------------------+---------------------------+-------------------+
+| CustDemo1 | Mr         | Joe        | Q           | Public    | M      | 1999-06-15 | MarsSingle             | EmpsFullTime              | Software Engineer |
+| CustDemo2 | Mr         | Jack       | John        | Smith     | M      | 1999-09-14 | MarsMarried            | EmpsFullTime              | Doctor            |
+| CustDemo4 | Ms         | John       | J           | Norvig    | F      | 1998-06-11 | MarsSingle             | EmpsFullTime              | Software Engineer |
+| CustDemo5 | Mr         | Charlie    | Jack        | William   | M      | 1992-04-22 | MarsMarried            | EmpsSelf                  | Architect         |
+| CustDemo6 | Mr         | James      | W           | Evans     | M      | 1993-05-20 | MarsMarried            | EmpsFullTime              | Civil Engineer    |
++-----------+------------+------------+-------------+-----------+--------+------------+------------------------+---------------------------+-------------------+
 
-Find the Order details assigned to the facility with ZIRET_WH value. Output the below fields for this query:
+13. Find the Order details assigned to the facility with ZIRET_WH value. Output the below fields for this query:
 orderId
 orderPartSeqId
 facilityId
@@ -158,8 +167,30 @@ productId
 itemDescription
 quantity
 
+Ans. > SELECT op.order_id, op.order_part_seq_id, op.facility_id, op.part_name, op.customer_party_id, oi.product_id, oi.item_description, oi.quantity
+    -> FROM order_part op, order_item oi
+    -> WHERE op.facility_id = 'ZIRET_WH' AND op.order_id = oi.order_id AND op.order_part_seq_id = oi.order_part_seq_id ;
++----------+-------------------+-------------+-----------+-------------------+-------------+-------------------------+----------+
+| order_id | order_part_seq_id | facility_id | part_name | customer_party_id | product_id  | item_description        | quantity |
++----------+-------------------+-------------+-----------+-------------------+-------------+-------------------------+----------+
+| 100051   | 01                | ZIRET_WH    | #101      | CustDemo1         | DEMO_UNIT_1 | Demo Product Unit One   | 1.000000 |
+| 100052   | 01                | ZIRET_WH    | #103      | CustDemo1         | DEMO_UNIT_3 | Demo Product Unit Three | 1.000000 |
+| 100052   | 01                | ZIRET_WH    | #103      | CustDemo1         | NULL        | Sales Tax               | 1.000000 |
+| 100061   | 01                | ZIRET_WH    | #101      | CustDemo6         | DEMO_UNIT_2 | Demo Product Unit Two   | 2.000000 |
+| 100064   | 02                | ZIRET_WH    | #106      | CustDemo6         | DEMO_UNIT_2 | Demo Product Unit Two   | 2.000000 |
+| 100102   | 01                | ZIRET_WH    | #104      | CustDemo3         | DEMO_UNIT_1 | Demo Product Unit One   | 3.000000 |
+| 100102   | 01                | ZIRET_WH    | #104      | CustDemo3         | DEMO_UNIT_2 | Demo Product Unit Two   | 3.000000 |
+| 100102   | 01                | ZIRET_WH    | #104      | CustDemo3         | NULL        | Sales Tax               | 3.000000 |
+| 100153   | 01                | ZIRET_WH    | #106      | CustDemo4         | DEMO_UNIT_3 | Demo Product Unit Three | 1.000000 |
+| 100153   | 01                | ZIRET_WH    | #106      | CustDemo4         | NULL        | Sales Tax               | 1.000000 |
+| 100153   | 01                | ZIRET_WH    | #106      | CustDemo4         | DEMO_UNIT_4 | Demo Product Unit Four  | 1.000000 |
+| 100153   | 01                | ZIRET_WH    | #106      | CustDemo4         | NULL        | Sales Tax               | 1.000000 |
+| 100255   | 01                | ZIRET_WH    | #107      | CustDemo5         | DEMO_UNIT_4 | Demo Product Unit Four  | 3.000000 |
+| 100255   | 01                | ZIRET_WH    | #107      | CustDemo5         | NULL        | Sales Tax               | 3.000000 |
++----------+-------------------+-------------+-----------+-------------------+-------------+-------------------------+----------+
 
-Output the sum of the grandTotal from Order Header table for each placed date.
+
+14. Output the sum of the grandTotal from Order Header table for each placed date.
 
 Ans.> SELECT placed_date, SUM(grand_total) AS grand_total FROM order_header GROUP BY placed_date;
 +-------------------------+-------------+
@@ -173,7 +204,7 @@ Ans.> SELECT placed_date, SUM(grand_total) AS grand_total FROM order_header GROU
 | 2020-03-17 00:00:00.000 |     75.9300 |
 +-------------------------+-------------+
 
-List the Order Header records where grand total is greater than highest grand total of the order placed on 2020-04-17.
+15. List the Order Header records where grand total is greater than highest grand total of the order placed on 2020-04-17.
 
 Ans.> SELECT * FROM order_header WHERE grand_total > (SELECT MAX(grand_total) FROM order_header WHERE placed_date ='2020-04-17');
 +----------+--------------+-------------------------+-------------------------+----------------+-----------------+-------------------+-----------------------+-------------+
@@ -183,7 +214,7 @@ Ans.> SELECT * FROM order_header WHERE grand_total > (SELECT MAX(grand_total) FR
 | 100102   | Test Order 3 | 2021-04-17 00:00:00.000 | 2021-04-21 00:00:00.000 | OrderCompleted | USD             | OMS_DEFAULT_STORE | ScWeb                 |    129.9200 |
 +----------+--------------+-------------------------+-------------------------+----------------+-----------------+-------------------+-----------------------+-------------+
 
-Output the sum of the grandTotal from Order Header table for each placed date where total sum is greater than 60.
+16. Output the sum of the grandTotal from Order Header table for each placed date where total sum is greater than 60.
 
 Ans.> SELECT placed_date, SUM(grand_total) AS grand_total FROM order_header WHERE grand_total > 60 GROUP BY placed_date;
 +-------------------------+-------------+
@@ -195,7 +226,7 @@ Ans.> SELECT placed_date, SUM(grand_total) AS grand_total FROM order_header WHER
 | 2020-03-17 00:00:00.000 |     75.9300 |
 +-------------------------+-------------+ 
 
-Output the Person's party Id, first name, last name and orderId for all customers who have placed orders on 2020-04-17.
+17. Output the Person's party Id, first name, last name and orderId for all customers who have placed orders on 2020-04-17.
 
 Ans.> SELECT person.party_id, person.first_name, person.last_name, order_part.order_id FROM person,order_part WHERE order_part.order_id IN (SELECT order_id FROM order_header WHERE placed_date = '2020-04-17') GROUP BY party_id;
 +-----------+------------+-----------+----------+
@@ -209,7 +240,7 @@ Ans.> SELECT person.party_id, person.first_name, person.last_name, order_part.or
 | CustDemo6 | James      | Evans     | 100052   |
 +-----------+------------+-----------+----------+
 
-List the Person details whose order status in Order Part table is OrderApproved using EXISTS operator.
+18. List the Person details whose order status in Order Part table is OrderApproved using EXISTS operator.
 
 Ans.> SELECT * FROM person WHERE EXISTS (SELECT DISTINCT customer_party_id FROM order_part WHERE person.party_id = order_part.customer_party_id AND status_id ='OrderApproved');
 +-----------+------------+------------+-------------+-----------+--------+------------+------------------------+---------------------------+-------------------+
@@ -221,7 +252,7 @@ Ans.> SELECT * FROM person WHERE EXISTS (SELECT DISTINCT customer_party_id FROM 
 | CustDemo6 | Mr         | James      | W           | Evans     | M      | 1993-05-20 | MarsMarried            | EmpsFullTime              | Civil Engineer    |
 +-----------+------------+------------+-------------+-----------+--------+------------+------------------------+---------------------------+-------------------+
 
-List the Order Header details for highest grandTotal for each placed date.
+19. List the Order Header details for highest grandTotal for each placed date.
 
 Ans.> SELECT order_id, order_name, placed_date, approved_date, status_id, currency_uom_id, product_store_id, sales_channel_enum_id, Max(grand_total) AS grand_total
     -> FROM order_header
@@ -237,7 +268,7 @@ Ans.> SELECT order_id, order_name, placed_date, approved_date, status_id, curren
 | 100255   | Test Order 5 | 2020-03-17 00:00:00.000 | 2020-03-21 00:00:00.000 | OrderApproved  | USD             | OMS_DEFAULT_STORE | ScWeb                 |     75.9300 |
 +----------+--------------+-------------------------+-------------------------+----------------+-----------------+-------------------+-----------------------+-------------+
 
-Find the count of order parts for each Person. Output the below details for this query:
+20. Find the count of order parts for each Person. Output the below details for this query:
 partyId
 firstName
 lastName
@@ -254,15 +285,36 @@ Ans.> SELECT party_id, first_name, last_name, COUNT(party_id) FROM person,order_
 | CustDemo6 | James      | Evans     |               4 |
 +-----------+------------+-----------+-----------------+
 
-Output the customerPartyId and highest order grandTotal for each customer.
+21. Output the customerPartyId and highest order grandTotal for each customer.
 
-Ans.
+Ans. > SELECT op.customer_party_id, MAX(oh.grand_total)
+    -> FROM order_part op, order_header oh
+    -> WHERE op.order_id = oh.order_id
+    -> GROUP BY op.customer_party_id;
++-------------------+---------------------+
+| customer_party_id | MAX(oh.grand_total) |
++-------------------+---------------------+
+| CustDemo1         |             77.9500 |
+| CustDemo3         |            129.9200 |
+| CustDemo4         |             31.6400 |
+| CustDemo5         |             75.9300 |
+| CustDemo6         |             87.0700 |
++-------------------+---------------------+
 
-List the unique order Ids for the Order Headers with more than one Order Part.
+22. List the unique order Ids for the Order Headers with more than one Order Part.
 
-Ans.
+Ans. > SELECT order_header.order_id FROM order_header,order_part WHERE order_part.order_part_seq_id > 01 AND order_header.order_id = order_part.order_id;
++----------+
+| order_id |
++----------+
+| 100051   |
+| 100102   |
+| 100255   |
+| 100061   |
+| 100064   |
++----------+
 
-List all Order Header details whose grandTotal is greater than the average grandTotal for all orders placed on 2020-04-17.
+23. List all Order Header details whose grandTotal is greater than the average grandTotal for all orders placed on 2020-04-17.
 
 Ans.> SELECT * FROM order_header WHERE grand_total > (SELECT AVG(grand_total) FROM order_header WHERE placed_date = '2020-04-17');
 +----------+--------------+-------------------------+-------------------------+----------------+-----------------+-------------------+-----------------------+-------------+
@@ -275,13 +327,26 @@ Ans.> SELECT * FROM order_header WHERE grand_total > (SELECT AVG(grand_total) FR
 | 100255   | Test Order 5 | 2020-03-17 00:00:00.000 | 2020-03-21 00:00:00.000 | OrderApproved  | USD             | OMS_DEFAULT_STORE | ScWeb                 |     75.9300 |
 +----------+--------------+-------------------------+-------------------------+----------------+-----------------+-------------------+-----------------------+-------------+
 
-List the ItemSalesTax Order Item Details for each order.
-List the below Order Information for the orderId, 100153.
+24. List the ItemSalesTax Order Item Details for each order.
+
+Ans. > SELECT * FROM order_item WHERE item_type_enum_id ='ItemSalesTax';
++----------+-------------------+-------------------+------------+------------------+----------+-------------+-------------------+--------------------+
+| ORDER_ID | ORDER_ITEM_SEQ_ID | ORDER_PART_SEQ_ID | PRODUCT_ID | ITEM_DESCRIPTION | QUANTITY | UNIT_AMOUNT | ITEM_TYPE_ENUM_ID | PARENT_ITEM_SEQ_ID |
++----------+-------------------+-------------------+------------+------------------+----------+-------------+-------------------+--------------------+
+| 100051   | 03                | 02                | NULL       | Sales Tax        | 3.000000 |     1.33000 | ItemSalesTax      | 02                 |
+| 100052   | 02                | 01                | NULL       | Sales Tax        | 1.000000 |     1.33000 | ItemSalesTax      | 01                 |
+| 100102   | 03                | 01                | NULL       | Sales Tax        | 3.000000 |     2.33000 | ItemSalesTax      | 02                 |
+| 100153   | 02                | 01                | NULL       | Sales Tax        | 1.000000 |     1.33000 | ItemSalesTax      | 01                 |
+| 100153   | 04                | 01                | NULL       | Sales Tax        | 1.000000 |     2.33000 | ItemSalesTax      | 03                 |
+| 100255   | 02                | 01                | NULL       | Sales Tax        | 3.000000 |     1.33000 | ItemSalesTax      | 01                 |
++----------+-------------------+-------------------+------------+------------------+----------+-------------+-------------------+--------------------+
+
+25. List the below Order Information for the orderId, 100153.
 orderId
 orderPartSeqId
 customerPartyId
 firstName
-lastName
+lastName	
 placedDate
 orderItemSeqId
 productId
@@ -290,7 +355,17 @@ unitAmount
 quantity
 partTotal
 grandTotal
-List the below Order details for the customer partyId, CustDemo1.
+
+Ans. > SELECT oi.order_id, oi.order_part_seq_id, op.customer_party_id, p.first_name, p.last_name, oh.placed_date, oi.order_item_seq_id, oi.product_id, oi.item_description, oi.unit_amount, oi.quantity, op.part_total, oh.grand_total
+    -> FROM person p, order_header oh, order_part op ,order_item oi
+    -> WHERE oh.order_id = 100153 AND oh.order_id = op.order_id AND p.party_id = op.customer_party_id AND op.order_id = oi.order_id AND op.order_part_seq_id = oi.order_part_seq_id GROUP BY order_id;
++----------+-------------------+-------------------+------------+-----------+-------------------------+-------------------+-------------+-------------------------+-------------+----------+------------+-------------+
+| order_id | order_part_seq_id | customer_party_id | first_name | last_name | placed_date             | order_item_seq_id | product_id  | item_description        | unit_amount | quantity | part_total | grand_total |
++----------+-------------------+-------------------+------------+-----------+-------------------------+-------------------+-------------+-------------------------+-------------+----------+------------+-------------+
+| 100153   | 01                | CustDemo4         | John       | Norvig    | 2020-04-19 00:00:00.000 | 01                | DEMO_UNIT_3 | Demo Product Unit Three |    14.99000 | 1.000000 |    31.6400 |     31.6400 |
++----------+-------------------+-------------------+------------+-----------+-------------------------+-------------------+-------------+-------------------------+-------------+----------+------------+-------------+
+
+26. List the below Order details for the customer partyId, CustDemo1.
 orderId
 orderPartSeqId
 orderName
@@ -302,3 +377,13 @@ productId
 itemDescription
 quantity
 unitAmount
+
+Ans.> SELECT oi.order_id, oi.order_part_seq_id, oh.order_name, op.part_name, op.customer_party_id, op.facility_id, oi.order_item_seq_id, oi.product_id, oi.item_description, oi.unit_amount, oi.quantity
+    -> FROM order_header oh, order_part op ,order_item oi
+    -> WHERE op.customer_party_id = 'CustDemo1' AND oh.order_id = op.order_id AND op.order_id = oi.order_id AND op.order_part_seq_id = oi.order_part_seq_id GROUP BY order_id;
++----------+-------------------+--------------+-----------+-------------------+-------------+-------------------+-------------+-------------------------+-------------+----------+
+| order_id | order_part_seq_id | order_name   | part_name | customer_party_id | facility_id | order_item_seq_id | product_id  | item_description        | unit_amount | quantity |
++----------+-------------------+--------------+-----------+-------------------+-------------+-------------------+-------------+-------------------------+-------------+----------+
+| 100051   | 01                | Test Order 1 | #101      | CustDemo1         | ZIRET_WH    | 01                | DEMO_UNIT_1 | Demo Product Unit One   |    16.99000 | 1.000000 |
+| 100052   | 01                | Test Order 2 | #103      | CustDemo1         | ZIRET_WH    | 01                | DEMO_UNIT_3 | Demo Product Unit Three |    14.99000 | 1.000000 |
++----------+-------------------+--------------+-----------+-------------------+-------------+-------------------+-------------+-------------------------+-------------+----------+
